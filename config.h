@@ -66,14 +66,14 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{ run_command, "%s ",	    "/usr/bin/amixer sget Master | grep Mono: | awk '{print $4 $6}'" },
-	{ netspeed_rx, "%s",        "wlan0" },
-	{ separator, "|",	    NULL },
-	{ netspeed_tx, "%s",        "wlan0" },
+    { netspeed_rx, "%s",        "wlan0" },
+    { separator,   "|",	        NULL },
+    { netspeed_tx, "%s",        "wlan0" },
+    { run_command, " %s",       "/usr/bin/df -h ~ | /usr/bin/awk 'FNR == 2 {print $4}'" },
 	{ battery_state, " %s",     "BAT0" },
 	{ battery_perc, "%s",       "BAT0" },
 	{ cpu_perc, " C:%s",        NULL },
 	{ ram_perc, "R:%s ",	    NULL },
-	{ run_command, "u:%s ",	    "/usr/bin/checkupdates | wc -l" },
 	{ datetime, "%s",           "%a %b%d %H:%M" },
 
 };
