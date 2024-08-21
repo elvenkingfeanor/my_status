@@ -69,6 +69,7 @@ static const struct arg args[] = {
     { netspeed_rx, "%s",        "wlan0" },
     { separator,   "|",	        NULL },
     { netspeed_tx, "%s",        "wlan0" },
+    { run_command, " %s",	"/usr/bin/cat /sys/class/backlight/nv_backlight/brightness" },
     { run_command, " %s",       "/usr/bin/df -h ~ | /usr/bin/awk 'FNR == 2 {print $4}'" },
 	{ battery_state, " %s",     "BAT0" },
 	{ battery_perc, "%s",       "BAT0" },
