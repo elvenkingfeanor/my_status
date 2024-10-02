@@ -45,7 +45,6 @@ static const char unknown_str[] = "n/a";
  * ram_total           total memory size in GB         NULL
  * ram_used            used memory in GB               NULL
  * run_command         custom shell command            command (echo foo)
- * separator           string to echo                  NULL
  * swap_free           free swap in GB                 NULL
  * swap_perc           swap usage in percent           NULL
  * swap_total          total swap size in GB           NULL
@@ -65,12 +64,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ run_command, "%s ",	    "/usr/bin/amixer sget Master | grep Mono: | awk '{print $4 $6}'" },
-    { netspeed_rx, "%s",        "wlan0" },
-    { separator,   "|",	        NULL },
+	{ run_command, "%s:",	    "~/.local/bin/vol" },
+	{ run_command, "%s ",	    "~/.local/bin/mic" },
+    { netspeed_rx, "%s:",        "wlan0" },
     { netspeed_tx, "%s",        "wlan0" },
-    { run_command, " %s",	"/usr/bin/cat /sys/class/backlight/nv_backlight/brightness" },
-    { run_command, " %s",       "/usr/bin/df -h ~ | /usr/bin/awk 'FNR == 2 {print $4}'" },
+    { run_command, " %s",	"~/.local/bin/brtt" },
+    { run_command, " %s",       "~/.local/bin/freedisk" },
 	{ battery_state, " %s",     "BAT0" },
 	{ battery_perc, "%s",       "BAT0" },
 	{ cpu_perc, " C:%s",        NULL },
